@@ -1,6 +1,4 @@
 package com.example.springdocker.controller;
-
-
 import com.example.springdocker.model.Friend;
 import com.example.springdocker.service.FriendService;
 import lombok.RequiredArgsConstructor;
