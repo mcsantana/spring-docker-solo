@@ -14,6 +14,11 @@ import java.util.List;
 public class FriendController {
     private final FriendService service;
 
+    @GetMapping("/")
+    public String dockerTest() {
+        return "Halloooj docker";
+    }
+
     @GetMapping("/friends")
     public List<Friend> getFriends() {
         return service.getFriends();
