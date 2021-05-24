@@ -32,7 +32,7 @@ jobs:
            tags: mcsantana/mimi-solo-image:${{ github.run_number }}
 
       - name: Upload Artifact
-        uses: action/upload-artifact@v2
+        uses: actions/upload-artifact@v2
         with:
            name: app.jar
            path: target/*.jar
