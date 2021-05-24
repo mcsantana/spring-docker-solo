@@ -2,13 +2,21 @@ name: Docker Push And Upload Jar File
 on:
   workflow_dispatch:
 
-
 jobs:
+
   push-and-upload:
 
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+
+      - name: build jar
+        run: mvn test
       - name: Docker Hub Login
         uses: docker/login-action@v1
         with:
