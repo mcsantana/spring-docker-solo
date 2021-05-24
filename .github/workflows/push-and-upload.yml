@@ -1,24 +1,14 @@
-name: Docker login
-
+name: Docker Push And Upload Jar File
 on:
   workflow_dispatch:
 
 
 jobs:
-  logins:
+  push-and-upload:
 
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-
-      - name: build jar
-        run: mvn clean install
-
       - name: Docker Hub Login
         uses: docker/login-action@v1
         with:
@@ -30,7 +20,7 @@ jobs:
          with:
            context: .
            push: true
-           tags: mcsantana/mimi-solo:${{ github.run_number }}
+           tags: mcsantana/mimi-solo-image:${{ github.run_number }}
 
        - name: Upload Artifact
          uses: action/upload-artifact@v2
